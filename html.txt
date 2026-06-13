@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Loan Appointment System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <h2>AI Loan Assistant</h2>
+
+    <div class="menu-btn">
+        <i class="fa fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#booking">Book Slot</a></li>
+        <li><a href="#tracking">Track</a></li>
+    </ul>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+
+    <h1>
+        AI Powered Smart Loan <br>
+        Appointment & Processing System
+    </h1>
+
+    <p>
+        Reducing delays in Home, Crop and Agricultural
+        Loans through Intelligent Workflow Automation.
+    </p>
+
+    <a href="#booking" class="btn">
+        Apply for Loan
+    </a>
+
+</section>
+
+
+<!-- Problem Section -->
+<section class="card">
+
+    <h2>Current Problems</h2>
+
+    <div class="grid">
+
+        <div class="box">
+            <i class="fa fa-clock"></i>
+            <h3>Long Waiting</h3>
+            <p>Customers wait many days for loan processing.</p>
+        </div>
+
+
+        <div class="box">
+            <i class="fa fa-file"></i>
+            <h3>Manual Documents</h3>
+            <p>Repeated verification causes delays.</p>
+        </div>
+
+
+        <div class="box">
+            <i class="fa fa-user"></i>
+            <h3>Broker Dependency</h3>
+            <p>Middlemen increase cost and reduce transparency.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- AI Features -->
+<section class="card" id="features">
+
+    <h2>AI Features</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+<i class="fa fa-robot"></i>
+
+<h3>AI Chatbot</h3>
+
+<p>
+Telugu, Hindi and English support
+with 24/7 assistance.
+</p>
+
+</div>
+
+
+
+<div class="box">
+<i class="fa fa-calendar"></i>
+
+<h3>
+Smart Scheduling
+</h3>
+
+<p>
+Automatic officer allocation
+and slot management.
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<i class="fa fa-file-circle-check"></i>
+
+<h3>
+OCR Verification
+</h3>
+
+<p>
+Detects missing documents
+and poor quality uploads.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- Appointment Booking -->
+<section id="booking" class="card">
+
+<h2>
+Book Appointment
+</h2>
+
+
+<form id="loanForm">
+
+
+<input type="text"
+id="name"
+placeholder="Full Name"
+required>
+
+
+<input type="tel"
+id="phone"
+placeholder="Mobile Number"
+required>
+
+
+
+<select id="loan">
+
+<option>
+Select Loan Type
+</option>
+
+
+<option>
+Home Loan
+</option>
+
+
+<option>
+Crop Loan
+</option>
+
+
+<option>
+Agricultural Loan
+</option>
+
+
+<option>
+Tractor Loan
+</option>
+
+
+<option>
+Business Loan
+</option>
+
+
+</select>
+
+
+<input 
+type="number"
+id="amount"
+placeholder="Loan Amount">
+
+
+<h3>Select Slot</h3>
+
+
+<div class="slots">
+
+
+<div class="slot">
+10:00 AM
+</div>
+
+
+<div class="slot">
+11:00 AM
+</div>
+
+
+<div class="slot">
+12:00 PM
+</div>
+
+
+<div class="slot">
+2:00 PM
+</div>
+
+
+<div class="slot">
+3:00 PM
+</div>
+
+
+<div class="slot">
+4:00 PM
+</div>
+
+
+</div>
+
+
+<input type="hidden"
+id="selectedSlot">
+
+
+<button>
+Book Appointment
+</button>
+
+
+</form>
+
+
+<div id="result">
+</div>
+
+
+</section>
+
+
+
+
+<!-- Tracking -->
+
+<section id="tracking" class="card">
+
+
+<h2>
+Track Application
+</h2>
+
+
+<input type="text"
+id="trackId"
+placeholder="Enter Appointment ID">
+
+
+<button onclick="trackLoan()">
+Track Status
+</button>
+
+
+<p id="status">
+</p>
+
+
+</section>
+
+
+
+
+<!-- Footer -->
+
+<footer>
+
+<h3>
+Right Customer, Right Officer,
+Right Time – Powered by AI
+</h3>
+
+
+<p>
+AI Smart Loan System © 2026
+</p>
+
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

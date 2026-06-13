@@ -1,0 +1,291 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #f4f7fb;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar{
+    background: #0a4d8c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar h2{
+    font-size: 24px;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li{
+    margin-left: 25px;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover{
+    color: #ffd700;
+}
+
+.menu-btn{
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* Hero Section */
+.hero{
+    min-height: 90vh;
+    background: linear-gradient(rgba(10,77,140,.8),
+    rgba(10,77,140,.8)),
+    url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.hero h1{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p{
+    max-width: 700px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.btn{
+    background: #ffd700;
+    color: #0a4d8c;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover{
+    background: white;
+}
+
+
+/* Cards */
+.card{
+    width: 90%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px #ccc;
+}
+
+.card h2{
+    text-align: center;
+    color: #0a4d8c;
+    margin-bottom: 25px;
+}
+
+
+/* Grid Layout */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.box{
+    background: #eef5ff;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.box i{
+    font-size: 35px;
+    color: #0a4d8c;
+    margin-bottom: 15px;
+}
+
+.box:hover{
+    transform: translateY(-8px);
+    background: #0a4d8c;
+    color: white;
+}
+
+.box:hover i{
+    color: white;
+}
+
+
+/* Form */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+select{
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button{
+    background: #0a4d8c;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover{
+    background: #083764;
+}
+
+
+/* Appointment Slots */
+.slots{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+}
+
+.slot{
+    background: #dce8ff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.slot:hover{
+    background: #0a4d8c;
+    color: white;
+}
+
+.slot.active{
+    background: #0a4d8c;
+    color: white;
+}
+
+
+/* Result and Tracking */
+#result,
+#status{
+    margin-top: 20px;
+    font-size: 17px;
+    color: green;
+    font-weight: bold;
+}
+
+
+/* Footer */
+footer{
+    background: #0a4d8c;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+
+/* Tablet Responsive */
+@media(max-width: 768px){
+
+    .navbar{
+        padding: 15px 5%;
+    }
+
+    .nav-links{
+        display: none;
+    }
+
+    .menu-btn{
+        display: block;
+    }
+
+    .hero h1{
+        font-size: 32px;
+    }
+
+    .hero p{
+        font-size: 16px;
+    }
+
+    .grid{
+        grid-template-columns: 1fr;
+    }
+
+    .slots{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+/* Mobile Responsive */
+@media(max-width: 480px){
+
+    .hero h1{
+        font-size: 25px;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+
+    .card{
+        width: 95%;
+        padding: 20px;
+    }
+
+    .slots{
+        grid-template-columns: 1fr;
+    }
+
+    button{
+        font-size: 15px;
+    }
+}

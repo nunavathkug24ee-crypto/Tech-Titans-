@@ -1,0 +1,153 @@
+// Mobile Menu Toggle
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+    if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+    } else {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "60px";
+        navLinks.style.right = "10px";
+        navLinks.style.background = "#0a4d8c";
+        navLinks.style.padding = "15px";
+        navLinks.style.borderRadius = "10px";
+    }
+});
+
+
+// Appointment Slot Selection
+const slots = document.querySelectorAll(".slot");
+const selectedSlot = document.getElementById("selectedSlot");
+
+slots.forEach(slot => {
+    slot.addEventListener("click", () => {
+
+        // Remove previous selected slot
+        slots.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        // Select current slot
+        slot.classList.add("active");
+        selectedSlot.value = slot.innerText;
+    });
+});
+
+
+// Loan Appointment Form
+const loanForm = document.getElementById("loanForm");
+const result = document.getElementById("result");
+
+loanForm.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let loan = document.getElementById("loan").value;
+    let amount = document.getElementById("amount").value;
+
+
+    // Validation
+    if (selectedSlot.value === "") {
+        alert("Please select an appointment slot");
+        return;
+    }
+
+    if (phone.length < 10) {
+        alert("Please enter a valid mobile number");
+        return;
+    }
+
+
+    // Generate Unique ID
+    let id = "LOAN" + Math.floor(Math.random() * 1000000);
+
+
+    // Create Data Object
+    let bookingData = {
+        appointmentId: id,
+        customerName: name,
+        mobile: phone,
+        loanType: loan,
+        amount: amount,
+        slot: selectedSlot.value,
+        status: "Pending Verification"
+    };
+
+
+    // Save Data in Browser Storage
+    localStorage.setItem("loanData", JSON.stringify(bookingData));
+
+
+    // Display Confirmation
+    result.innerHTML = `
+        <h3> Appointment Booked Successfully</h3>
+        <p><strong>Appointment ID:</strong> ${id}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Loan:</strong> ${loan}</p>
+        <p><strong>Amount:</strong> ₹${amount}</p>
+        <p><strong>Slot:</strong> ${selectedSlot.value}</p>
+        <p><strong>Status:</strong> Pending Verification</p>
+    `;
+
+
+    // Reset Form
+    loanForm.reset();
+    selectedSlot.value = "";
+
+    slots.forEach(slot => {
+        slot.classList.remove("active");
+    });
+});
+
+
+// Track Loan Application
+function trackLoan()
+
+    let trackId = document.getElementById("trackId").value;
+    let status = document.getElementById("status");
+
+    let data = JSON.parse(localStorage.getItem("loanData"));
+
+    if (data && trackId === data.appointmentId) {
+
+        status.innerHTML = `
+         Application Found <br>
+        Customer: ${data.customerName}<br>
+        Loan Type: ${data.loanType}<br>
+        Current Status: ${data.status}
+        `;
+
+    } else {
+
+        status.innerHTML = " No application found with this ID";
+
+    }
+}
+
+
+// Smooth Scroll for Navigation Links
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        let section = document.querySelector(this.getAttribute("href"));
+
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+
+        // Close mobile menu after click
+        if(window.innerWidth <= 768){
+            navLinks.style.display = "none";
+        }
+
+    });
+
+});
